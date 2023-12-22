@@ -93,7 +93,7 @@ const startTimer = () => {
   intervalId.value = setInterval(() => {
     time.value--;
     if (time.value === 0) {
-      finishMsg.value = "!متاسفم، شما باختید";
+      finishMsg.value = "!متاسفم، زمان شما به اتمام رسید";
       stopTimer();
     }
   }, 1000);
@@ -106,7 +106,7 @@ const stopTimer = () => {
 const decreaseCountNum = () => {
   countNum.value--;
   if (countNum.value === 0) {
-    finishMsg.value = "!متاسفم، شما باختید";
+    finishMsg.value = "!متاسفم، تعداد حرکات شما به پایان رسید";
     stopTimer();
   }
 };
