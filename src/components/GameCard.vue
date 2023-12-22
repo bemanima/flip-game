@@ -2,25 +2,29 @@
   <img
     :src="imgUrl"
     :alt="`product-${cardNum}`"
-    width="64"
-    height="64"
-    v-if="isFlipped"
-    :id="`image-${cardImg}`"
+    width="80"
+    height="80"
+    v-if="card.isFlipped"
   />
-  <button :id="cardImg" class="game-card" v-else>
+  <button class="game-card" v-else>
     {{ cardNum }}
   </button>
 </template>
 
 <script setup>
-import { computed, ref, inject } from "vue";
+import { computed } from "vue";
+
 const props = defineProps({
   cardNum: Number,
-  cardImg: Number,
-  isFlipped: Boolean,
+  card: {
+    imgNum: Number,
+    isFlipped: Boolean,
+  },
 });
 
-const imgUrl = computed(() => `/assets/images/product-${props.cardImg}.jpg`);
+const imgUrl = computed(
+  () => `/assets/images/product-${props.card.imgNum}.jpg`
+);
 </script>
 
 <style scoped>
@@ -28,8 +32,8 @@ const imgUrl = computed(() => `/assets/images/product-${props.cardImg}.jpg`);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   background-color: rgb(247, 65, 65);
   border-radius: 4px;
   color: white;

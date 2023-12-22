@@ -1,7 +1,7 @@
 <template>
   <div class="info">
-    <div class="time">زمان: {{ time }}</div>
-    <div class="count-number">تعداد حرکت: {{ count }}</div>
+    <h2 class="time">زمان: {{ time }}</h2>
+    <h2 class="count-number">تعداد حرکت: {{ count }}</h2>
   </div>
 </template>
 
@@ -12,4 +12,10 @@ const props = defineProps({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.info {
+  width: 368px;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
