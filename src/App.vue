@@ -58,13 +58,13 @@ const flipCard = (card) => {
     }
 
     if (secondCard.value) {
-      if (firstCard.value.imgNum !== secondCard.value.imgNum) {
+      if (firstCard.value.imgNum === secondCard.value.imgNum) {
+        resetCardsState();
+      } else {
         let timeoutId = setTimeout(() => {
           cancelFlipCard();
           clearTimeout(timeoutId);
         }, 1000);
-      } else {
-        resetCardsState();
       }
     }
     checkWin();
@@ -113,12 +113,12 @@ const decreaseCountNum = () => {
 
 const resetGame = () => {
   cardArray.value = [];
-  resetCardsState();
-  generateCardArray();
-  stopTimer();
   time.value = 120;
   countNum.value = 40;
   finishMsg.value = "";
+  resetCardsState();
+  generateCardArray();
+  stopTimer();
 };
 
 const resetCardsState = () => {
